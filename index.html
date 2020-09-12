@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+		<section>
+			<div class="head">
+				<img src="images/security.jpg">
+			</div>
+		</section>
+		<div class="container">
+			<br>
+			<p id="answer" class="answer"></p><br>
+			<!-- <button id="copy" class="btn">copy</button><br>	<br> -->	
+
+			<center>
+				<label>Enter Password Length :</label>
+				<input type="number" maxlength="128" value="0" id="length">
+			</center>
+			<br><br>
+			<div class="checks">
+				<label  class="label">Upper Case :</label><input type="checkbox" id="upper" checked class="val"><br>
+				<label  class="label">Lower Case :</label><input type="checkbox" id="lower" checked class="val"><br>
+				<label  class="label">Numbers :</label><input type="checkbox" id="number" checked class="val"><br>
+				<label  class="label">Symbols :</label><input type="checkbox" id="symbol" checked class="val"><br><br>	
+			</div>
+
+			<center><button id="generate" class="btn">Generate Password</button></center>
+		</div>
+		<br><br>
+		<footer class="footer">
+			<br><br>
+			<p>For more information please see <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST Special Publication 800-63B</a></p>
+			<br><br>
+		</footer>
+		<script src="script.js"></script>
+</body>
+</html>

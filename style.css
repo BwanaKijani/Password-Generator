@@ -1,0 +1,50 @@
+body {
+	margin: 0;
+	
+	background-color:black;
+	font-family: sans-serif;
+}
+
+.head {
+	background-color: grey;
+	text-align: center;
+	border-bottom-right-radius: 50px;
+}
+
+
+.answer {
+	margin-left: 120px;
+	text-align: center;
+	background-color: lightgrey;
+	width:1200px;
+	height: 70px;
+	color:red;
+	text-align: center;
+}
+
+.val {
+	float: right;
+	margin: 0;
+}
+
+.label {
+	float: left;
+	padding-left: 7px;
+}
+
+.btn {
+	background-color: #578dcf;
+	width:150px;
+	height: 50px;
+}
+
+.container {
+	color: white;
+}
+
+.footer {
+	background-color: lightgrey;
+	text-align: center;
+	border-top-left-radius: 10px;
+	color: white;
+}
