@@ -4,38 +4,58 @@
 	<title>Password Generator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
-		<section>
-			<div class="head">
-				<img src="security.jpg">
-			</div>
-		</section>
-		<div class="container">
-			<br>
-			<p id="answer" class="answer"></p><br>
-			<!-- <button id="copy" class="btn">copy</button><br>	<br> -->	
-
-			<center>
+	<section>
+		<div class="head">
+			<img src="security.jpg">
+		</div>
+	</section>
+	<div class="container">
+		<br>
+		<p id="answer" class="answer"></p><br>
+		<center>
+			<!-- Add the Google Sign-In button -->
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			<!-- Hide the password generator until the user is signed in -->
+			<div id="password-generator" style="display:none">
 				<label>Enter Password Length :</label>
 				<input type="number" maxlength="128" value="0" id="length">
-			</center>
-			<br><br>
-			<div class="checks">
-				<label  class="label">Upper Case :</label><input type="checkbox" id="upper" checked class="val"><br>
-				<label  class="label">Lower Case :</label><input type="checkbox" id="lower" checked class="val"><br>
-				<label  class="label">Numbers :</label><input type="checkbox" id="number" checked class="val"><br>
-				<label  class="label">Symbols :</label><input type="checkbox" id="symbol" checked class="val"><br><br>	
+				<br><br>
+				<div class="checks">
+					<label  class="label">Upper Case :</label><input type="checkbox" id="upper" checked class="val"><br>
+					<label  class="label">Lower Case :</label><input type="checkbox" id="lower" checked class="val"><br>
+					<label  class="label">Numbers :</label><input type="checkbox" id="number" checked class="val"><br>
+					<label  class="label">Symbols :</label><input type="checkbox" id="symbol" checked class="val"><br><br>	
+				</div>
+				<center><button id="generate" class="btn">Generate Password</button></center>
 			</div>
-
-			<center><button id="generate" class="btn">Generate Password</button></center>
-		</div>
+		</center>
+	</div>
+	<br><br>
+	<footer class="footer">
 		<br><br>
-		<footer class="footer">
-			<br><br>
-			<p>For more information please see <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST Special Publication 800-63B</a></p>
-			<br><br>
-		</footer>
-		<script src="script.js"></script>
+		<p>For more information please see <a href="https://pages.nist.gov/800-63-3/sp800-63b.html">NIST Special Publication 800-63B</a></p>
+		<br><br>
+	</footer>
+	<script src="script.js"></script>
+	<script>
+		// Set up the Google API client
+		gapi.load('auth2', function() {
+			gapi.auth2.init({
+				client_id: 'YOUR_CLIENT_ID_HERE'
+			});
+		});
+
+		// Define the callback function for when the user signs in
+		function onSignIn(googleUser) {
+			// Show the password generator
+			document.getElementById("password-generator").style.display = "block";
+			// Get the user's ID token and pass it to your server for verification
+			var id_token = googleUser.getAuthResponse().id_token;
+			// TODO: Pass the ID token to your server for verification
+		}
+	</script>
 </body>
 </html>
